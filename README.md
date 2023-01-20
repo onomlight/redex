@@ -1,3 +1,5 @@
+#기본 폴더를 먼저 생성 후 리액트 파일을 추가 생성하는 방식으로 진행중입니다 커밋으로 확인해주시면됩니다.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
