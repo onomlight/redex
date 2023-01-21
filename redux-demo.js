@@ -3,7 +3,7 @@ const redux = require('redux')
 
 // function counterReducer (){}
 
-const counterReducer = (state, action) => {
+const counterReducer = (state = { counter: 0 }, action) => {
   // 해당상태에서 리듀서함수에 액션값을 받을것 => 궁극적으로 리덕스 라이브러리에 의해 실행
 
   return {
@@ -17,6 +17,9 @@ const counterReducer = (state, action) => {
 }
 
 const store = redux.createStore(counterReducer)
+
+//>> 오류없이 실행되나 표시가 안됨으로 콘솔로그 실행
+console.log(store.getState())
 // 데이터를관리하는게 리듀서함수에 결정됨
 
 // === 리덕스 라이브러리에서 받아서 기존상태에서 받음
@@ -31,3 +34,4 @@ const counterSubscriber = () => {
 store.subscribe(counterSubscriber)
 
 // 이후 node redux-demo.js  라고 터미널에 치면 코드 실행됨 >> 카운터에 오류 발생함
+// 카운터가 처음 실행되는데 +1 할 값이 없음으로 보조 기본값이 있어야함 그래서 스테이넣기
