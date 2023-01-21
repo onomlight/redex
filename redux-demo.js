@@ -35,3 +35,6 @@ store.subscribe(counterSubscriber)
 
 // 이후 node redux-demo.js  라고 터미널에 치면 코드 실행됨 >> 카운터에 오류 발생함
 // 카운터가 처음 실행되는데 +1 할 값이 없음으로 보조 기본값이 있어야함 그래서 스테이넣기
+
+store.dispatch({ type: 'increment' }) // dispatch는 액션을 발송하는 메소드
+// 카운터를 증가시키기 위해 ‘increment’라는 타입 추가
