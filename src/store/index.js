@@ -1,8 +1,13 @@
 //여기서는 리덕스 로직을 저장할것
 import { createStore } from 'redux'
+
+//
+
+export const INCREMENT = 'increment' // 식별자 저장 후 상수로 보내기
+
 const inititalState = { counter: 0, showCounter: true }
 const counterReducer = (state = inititalState, action) => {
-  if (action.type === 'increment') {
+  if (action.type === INCREMENT) {
     return {
       counter: state.counter + 1,
       showCounter: state.showCounter,
