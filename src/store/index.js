@@ -1,13 +1,30 @@
 //여기서는 리덕스 로직을 저장할것
 import { createStore } from 'redux'
-
-//
-
-export const INCREMENT = 'increment' // 식별자 저장 후 상수로 보내기
+import { createSlice } from '@reduxjs/toolkit'
+//slice 가 redux 보다는 강력함
 
 const inititalState = { counter: 0, showCounter: true }
+createSlice({
+  name: 'counter',
+  inititalState,
+  reducers: {
+    //모든메서드들은 자동으로 최근값을 받고 나중에 리덕스에 의해 호출
+    increment(state) {
+      state.counter++
+    },
+    decrement(state) {
+      state.counter--
+    },
+    increase(state, action) {
+      state.counter = state.counter + action.amount
+    },
+    toggleCounter(state) {
+      state.showCounter = !state.showCounter
+    },
+  },
+})
 const counterReducer = (state = inititalState, action) => {
-  if (action.type === INCREMENT) {
+  if (action.type === 'increment') {
     return {
       counter: state.counter + 1,
       showCounter: state.showCounter,
