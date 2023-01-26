@@ -3,10 +3,10 @@
 import { createSlice, configureStore } from '@reduxjs/toolkit'
 //slice 가 redux 보다는 강력함
 
-const inititalState = { counter: 0, showCounter: true }
+const inititalCounterState = { counter: 0, showCounter: true }
 const counterSlice = createSlice({
   name: 'counter',
-  inititalState,
+  inititalState: inititalCounterState,
   reducers: {
     //모든메서드들은 자동으로 최근값을 받고 나중에 리덕스에 의해 호출
     increment(state) {
@@ -57,8 +57,24 @@ const counterSlice = createSlice({
 // }
 
 //
+const inititalAuthState = {
+  isAuthenticated: false,
+}
+const authSlice = createSlice({
+  name: 'authentication',
+  inititalState: inititalAuthState,
+  reducer: {
+    login(state) {
+      state.inititalAuthState = true
+    },
+    logout(state) {
+      state.inititalAuthState = false
+    },
+  },
+})
 const store = configureStore({
-  reducer: counterSlice.reducer,
+  reducer: { counter: counterSlice.reducer, auth: authSlice.reducer },
 })
 export const counterActions = counterSlice.action
+export const authActions = authSlice.action
 export default store
